@@ -60,7 +60,6 @@ class Dropdown extends Component {
             return <option value={set.code}>{set.name}</option>}
           })}
         </select>
-        <button>Select</button>
         </form>
         <div>
             {this.state.cards ? (<div>
@@ -70,7 +69,7 @@ class Dropdown extends Component {
                     <div><img src={card.imageUrl} /></div>
                     </div>
                 ))}
-            </div>) : <div>This set doesn't have booster packs, damn!</div>}     
+            </div>) : null}     
         </div>
       </div>
     );
