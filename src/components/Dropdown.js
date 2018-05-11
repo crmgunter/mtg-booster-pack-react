@@ -16,12 +16,7 @@ class Dropdown extends Component {
           name: ""
         }
       ]
-    },
-    // singleSet: {
-    //     cards: [{
-    //         name: ''
-    //     }]
-    // }
+    }
   };
 
   async componentDidMount() {
