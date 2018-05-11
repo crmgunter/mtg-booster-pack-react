@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import axios from 'axios'
+import Booster from './components/Booster'
+import Search from './components/Search'
+import Dropdown from './components/Dropdown';
 
 class App extends Component {
-  // booster{cards[{}]}
-  state = {
-    booster: {
-      cards: [{
-        name: '',
-        imageUrl: ''
-      }]
-    }
-  }
 
-  // async componentDidMount () {
-  //   this.getBooster()
-  // }
+  //get all sets
+  //plug sets into drop down list
+  //when set is selected generate booster for set
 
-  getBooster = async () => {
-    const res = await axios.get('https://api.magicthegathering.io/v1/sets/ust/booster')
-    const booster = res.data
-    this.setState({ booster })
-    console.log(booster)
-  }
+  //OR
+
+  //search for set
+  //search is entered into query param
+  //
 
 
   render() {
@@ -33,14 +25,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hi, Chris. Are you ready to get started?</h1>
         </header>
-        <button onClick={this.getBooster}>Crack a pack!</button>
-        
-          {this.state.booster.cards.map((booster) => (
-            <div>
-            <div>{booster.name}</div>
-            <div><img src={booster.imageUrl} /></div>
-            </div>
-          ))}
+        <Search />
+        <Dropdown/>
+        <Booster />
       </div>
     );
   }
