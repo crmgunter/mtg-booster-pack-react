@@ -28,17 +28,17 @@ class Search extends Component {
 
   handleChange = async event => {
     await this.setState({value: event.target.value})
-    // const newState = { ...this.state };
-    // newState[event.target.name] = event.target.value;
-    // await this.setState(newState);
-    // console.log(this.state);
+    const res = await axios.get("https://api.magicthegathering.io/v1/sets")
+    console.log(res.data)
+    this.state.allSets.sets.map((set) => {
+        const setToSearch = set.code
+    })
   };
 
   handleSubmit = async event => {
     event.preventDefault();
-    const set = this.state.set;
     const res = await axios.get(
-      `https://api.magicthegathering.io/v1/sets/${set}`
+      `https://api.magicthegathering.io/v1/sets/`
     );
     console.log(res.data);
   };
@@ -52,7 +52,7 @@ class Search extends Component {
             type="text"
             name="set"
             placeholder="What set are you looking for?"
-            value={this.state.allSets.name}
+            value={this.state.value}
           />
           <button>Search</button>
         </form>

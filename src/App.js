@@ -25,7 +25,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Hi, Chris. Are you ready to get started?</h1>
         </header>
-        <Search />
+        {/* <Search /> */}
         <Dropdown/>
         <Booster />
       </div>
