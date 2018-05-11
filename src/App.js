@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Booster from './components/Booster'
-import Search from './components/Search'
 import Dropdown from './components/Dropdown';
 
 class App extends Component {
@@ -26,7 +25,6 @@ class App extends Component {
           <h1 className="App-title">Hi. This is a fun little practice app. Select a set, crack a pack!</h1>
           
         </header>
-        {/* <Search /> */}
         <p>This app makes front end calls to the <a href="https://magicthegathering.io/">Magic the Gathering API</a> to grab MTG sets and create booster packs of a specific number of cards based on the expansion selected. 
         Eventually I'd like to set up a draft simulation type deal.
         <br/><br/>

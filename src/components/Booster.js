@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+//================================================
+//This is a button with a hardcoded api call for one set
+//It doesn't really do anything but this was the starting point to make sure everything was working
+//Figured I'd leave it to show the basics of what's going on
+//================================================
+
 class Booster extends Component {
     state = {
         booster: {
