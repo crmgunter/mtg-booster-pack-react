@@ -3,7 +3,7 @@ import axios from "axios";
 import Booster from "./Booster";
 import styled from "styled-components";
 
-const Flex = styled.div`
+const CardFlex = styled.div`
 display: flex;
 justify-content: space-around;
 flex-wrap: wrap;
@@ -74,13 +74,13 @@ class Dropdown extends Component {
         </form>
         <div>
           {this.state.cards ? (
-            <Flex>
+            <CardFlex>
               {this.state.cards.map(card => (
                   <div>
                     <img src={card.imageUrl} />
                   </div>
               ))}
-            </Flex>
+            </CardFlex>
           ) : null}
         </div>
       </div>
