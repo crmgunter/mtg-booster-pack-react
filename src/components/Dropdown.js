@@ -24,12 +24,18 @@ class Dropdown extends Component {
   }
 
   handleChange = async event => {
+      try {
     await this.setState({value: event.target.value})
     console.log(this.state.value)
     const res = await axios.get(`https://api.magicthegathering.io/v1/sets/${this.state.value}/booster`)
     const singleSet = res.data
     await this.setState( singleSet )
     console.log(singleSet)
+      }
+      catch(error) {
+          console.log(error)
+          this.setState(error)
+      }
   };
 
   getAllSets = async () => {
@@ -48,9 +54,11 @@ class Dropdown extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         >
-          {this.state.allSets.sets.map(set => (
-            <option value={set.code}>{set.name}</option>
-          ))}
+        
+          {this.state.allSets.sets.map(set => {
+            if (set.type === "expansion" || set.type === "un") {
+            return <option value={set.code}>{set.name}</option>}
+          })}
         </select>
         <button>Select</button>
         </form>
@@ -62,7 +70,7 @@ class Dropdown extends Component {
                     <div><img src={card.imageUrl} /></div>
                     </div>
                 ))}
-            </div>) : null}     
+            </div>) : <div>This set doesn't have booster packs, damn!</div>}     
         </div>
       </div>
     );
